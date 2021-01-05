@@ -1,3 +1,6 @@
+
+https://hennady95.github.io/simple-calculat/
+
 ## Neuromorphic calculator
 
 #### extremely difficult task
