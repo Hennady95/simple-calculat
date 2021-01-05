@@ -70,8 +70,12 @@ buttonPanel.addEventListener('click', (event) => {
         } else if(operation === 'division') {
             secondNumber /= +enterNumber.textContent;
             number = secondNumber;
-        } else {
+        } else if(operation === 'minus') {
+            number -= +enterNumber.textContent;
+        } else if(operation === 'plus') {
             number += +enterNumber.textContent;
+        } else {
+            number = +enterNumber.textContent;
         }
         operation = 'plus';
         showOperation.textContent += `${enterNumber.textContent} + `;
@@ -83,8 +87,14 @@ buttonPanel.addEventListener('click', (event) => {
         } else if(operation === 'division') {
             secondNumber /= +enterNumber.textContent;
             number = secondNumber;
+        } else if(operation === 'plus') {
+            number += +enterNumber.textContent;
+        } else if(operation === 'minus') {
+            secondNumber -= +enterNumber.textContent;
+            number = secondNumber;
         } else {
-            number -= +enterNumber.textContent;
+            number = +enterNumber.textContent;
+            secondNumber = number;
         }
         operation = 'minus';
         showOperation.textContent += `${enterNumber.textContent} - `;
