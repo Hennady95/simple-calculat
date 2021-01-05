@@ -118,7 +118,12 @@ buttonPanel.addEventListener('click', (event) => {
         showOperation.textContent += `${enterNumber.textContent} / `;
         enterNumber.textContent = '';
     } else if(event.target.id === 'percent') { //done
-        let percent = number / 100 * +enterNumber.textContent;
+        let percent = 0;
+        if(operation === 'multiplication' || operation === 'division') {
+             percent = secondNumber / 100 * +enterNumber.textContent;
+        } else {
+             percent = number / 100 * +enterNumber.textContent;
+        }
         enterNumber.textContent = percent;  
     } else if(event.target.id === 'plusMin') { //done
         let reverseNumber = 0;
