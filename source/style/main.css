@@ -1,0 +1,209 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  background-color: #F0F0F3;
+}
+
+main {
+  position: relative;
+  width: 1895px;
+  height: 930px;
+  background-color: #F0F0F3;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+main .calculate {
+  position: absolute;
+  left: 750px;
+  width: 360px;
+  height: 753px;
+  background-color: #000000;
+  margin: 0 auto;
+  border-radius: 16px;
+  z-index: 5;
+  -webkit-box-shadow: -10px -10px 24px rgba(255, 255, 255, 0.6), 10px 10px 24px rgba(174, 174, 192, 0.2);
+          box-shadow: -10px -10px 24px rgba(255, 255, 255, 0.6), 10px 10px 24px rgba(174, 174, 192, 0.2);
+}
+
+main .calculate .calculate__display {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 260px;
+  vertical-align: bottom;
+  text-align: right;
+}
+
+main .calculate .calculate__display--operation {
+  position: absolute;
+  bottom: 75px;
+  right: 5px;
+  margin: 0;
+  font-size: 53px;
+  color: #728AB7;
+  opacity: 0.65;
+}
+
+main .calculate .calculate__display--result {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  margin: 0;
+  font-size: 70px;
+  color: #F2F2F4;
+}
+
+main .calculate .calculate__body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  padding-left: 9%;
+  padding-top: 15%;
+  height: 493px;
+  background-color: #F0F0F3;
+  border-radius: 12px;
+  grid-column-gap: 19.76px;
+  grid-row-gap: 24px;
+  -ms-grid-columns: 60px 60px 60px 60px;
+      grid-template-columns: 60px 60px 60px 60px;
+  -ms-grid-rows: 60px 60px 60px 60px 60px;
+      grid-template-rows: 60px 60px 60px 60px 60px;
+}
+
+main .calculate .calculate__body::before {
+  position: absolute;
+  content: '';
+  left: calc(50% - 60px);
+  top: 4%;
+  width: 120px;
+  height: 8px;
+  background: #F0F0F3;
+  -webkit-box-shadow: -1px -1px 3px #FFFFFF, 1.5px 1.5px 3px rgba(174, 174, 192, 0.4);
+          box-shadow: -1px -1px 3px #FFFFFF, 1.5px 1.5px 3px rgba(174, 174, 192, 0.4);
+  border-radius: 12px;
+}
+
+main .calculate .calculate__body::after {
+  position: absolute;
+  content: '';
+  left: calc(50% - 60px);
+  top: 4%;
+  width: 120px;
+  height: 8px;
+  border: 2px;
+  background: #EEEEEE;
+  -webkit-box-shadow: inset -1px -1px 1px rgba(255, 255, 255, 0.7), inset 1px 1px 2px rgba(174, 174, 192, 0.2);
+          box-shadow: inset -1px -1px 1px rgba(255, 255, 255, 0.7), inset 1px 1px 2px rgba(174, 174, 192, 0.2);
+  border-radius: 12px;
+}
+
+main .calculate .button {
+  height: 60px;
+  width: 60px;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #F0F0F3;
+  border: none;
+  -webkit-box-shadow: -10px -10px 24px rgba(255, 255, 255, 0.6), 10px 10px 24px rgba(174, 174, 192, 0.2);
+          box-shadow: -10px -10px 24px rgba(255, 255, 255, 0.6), 10px 10px 24px rgba(174, 174, 192, 0.2);
+  border-radius: 16px;
+}
+
+main .calculate .button--doublesize {
+  padding-left: 25px;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  width: 135px;
+  text-align: left;
+}
+
+main .calculate .button--number {
+  color: #728AB7;
+}
+
+main .calculate .button--operation {
+  color: #745FF2;
+}
+
+main .calculate .button--logic__operation {
+  color: #898989;
+}
+
+main .calculate .button--result {
+  background-color: #2DD3C5;
+  color: #F0F0F3;
+}
+
+main .small-rectangle {
+  position: absolute;
+  content: '';
+  height: 230px;
+  width: 188px;
+  left: 300px;
+  top: 150px;
+  background: #F0F0F3;
+  -webkit-box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px rgba(174, 174, 192, 0.4);
+          box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px rgba(174, 174, 192, 0.4);
+  border-radius: 12px;
+}
+
+main .square {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  right: 334px;
+  top: 57px;
+  background: #F0F0F3;
+  -webkit-box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px rgba(174, 174, 192, 0.4);
+          box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px rgba(174, 174, 192, 0.4);
+  border-radius: 12px;
+}
+
+main .large-circle {
+  position: absolute;
+  width: 342px;
+  height: 342px;
+  left: 300px;
+  top: 75%;
+  border-radius: 50%;
+  background: #F0F0F3;
+  -webkit-box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
+          box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
+}
+
+main .small-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  right: 300px;
+  bottom: 55px;
+  border-radius: 50%;
+  background: #F0F0F3;
+  -webkit-box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
+          box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
+}
+
+main .left-bubles {
+  height: 224px;
+  width: 130px;
+  position: absolute;
+  left: 690px;
+  top: 20px;
+}
+
+main .right-bubles {
+  height: 224px;
+  width: 130px;
+  position: absolute;
+  right: 704px;
+  bottom: 155px;
+}
+/*# sourceMappingURL=main.css.map */

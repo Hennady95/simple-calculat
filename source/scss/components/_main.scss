@@ -1,0 +1,187 @@
+main {
+    position: relative;
+    width: 1895px;
+    height: 930px;
+    background-color: #F0F0F3;
+    padding: 100px 0;
+    overflow: hidden;
+
+    .calculate {
+        position: absolute;
+        left: 750px;
+        width: 360px;//411px;
+        height: 753px;//823px;
+        background-color: #000000;
+        margin: 0 auto;
+        border-radius: 16px;
+        z-index: 5;
+        box-shadow: -10px -10px 24px rgba(255, 255, 255, 0.6), 10px 10px 24px rgba(174, 174, 192, 0.2);
+
+        .calculate__display {
+            position: relative;
+            box-sizing: border-box;
+            height: 260px;//290px;
+            vertical-align: bottom;
+            text-align: right;
+        }
+
+        .calculate__display--operation {
+            position: absolute;
+            bottom: 75px;
+            right: 5px;
+            margin: 0;
+            font-size: 53px;
+            color: #728AB7;
+            opacity: 0.65;
+        }
+
+        .calculate__display--result {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            margin: 0;
+            font-size: 70px;
+            color: #F2F2F4;
+        }
+
+        .calculate__body {
+            box-sizing: border-box; // перенести в *
+            position: relative;
+            display: grid;
+            padding-left: 9%;
+            padding-top: 15%;
+            height: 493px;//533px;
+            background-color:  #F0F0F3;
+            border-radius: 12px;
+            grid-column-gap: 19.76px;
+            grid-row-gap: 24px;
+            grid-template-columns: 60px 60px 60px 60px;//70px 70px 70px 70px;
+            grid-template-rows: 60px 60px 60px 60px 60px;//70px 70px 70px 70px 70px;
+        }
+        
+        .calculate__body::before {
+            position: absolute;
+            content: '';
+            left: calc(50% - 60px);
+            top: 4%;
+            width: 120px;
+            height: 8px;
+            background: #F0F0F3;
+            box-shadow: -1px -1px 3px #FFFFFF, 1.5px 1.5px 3px rgba(174, 174, 192, 0.4);
+            border-radius: 12px;
+        }
+
+        .calculate__body::after {
+            position: absolute;
+            content: '';
+            left: calc(50% - 60px);
+            top: 4%;
+            width: 120px;
+            height: 8px;
+            border: 2px;
+            background: #EEEEEE;
+            box-shadow: inset -1px -1px 1px rgba(255, 255, 255, 0.7), inset 1px 1px 2px rgba(174, 174, 192, 0.2);
+            border-radius: 12px;
+        }
+
+        .button {
+            height: 60px;//70px;
+            width:  60px;//70px;
+            font-size: 30px;//40px;
+            font-weight: bold;
+            background-color: #F0F0F3;
+            border: none;
+            box-shadow: -10px -10px 24px rgba(255, 255, 255, 0.6), 10px 10px 24px rgba(174, 174, 192, 0.2);
+            border-radius: 16px;
+        }
+
+        .button--doublesize {
+            padding-left: 25px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            width: 135px;//165px;
+            text-align: left;
+        }
+
+        .button--number {
+            color: #728AB7;
+        }
+
+        .button--operation {
+            color: #745FF2;
+        }
+
+        .button--logic__operation {
+            color: #898989;
+        }
+
+        .button--result {
+            background-color: #2DD3C5;
+            color: #F0F0F3;
+        }
+    }
+
+    .small-rectangle {
+        position: absolute;
+        content: '';
+        height: 230px;
+        width: 188px;
+        left: 300px;
+        top: 150px;
+        background: #F0F0F3;
+        box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px rgba(174, 174, 192, 0.4);
+        border-radius: 12px;
+    }
+
+    .square {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        right: 334px;
+        top: 57px;
+
+        background: #F0F0F3;
+        box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px rgba(174, 174, 192, 0.4);
+        border-radius: 12px;
+    }
+
+    .large-circle {
+        position: absolute;
+        width: 342px;
+        height: 342px;
+        left: 300px;
+        top: 75%;
+
+        border-radius: 50%;
+        background: #F0F0F3;
+        box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
+    }
+
+    .small-circle {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        right: 300px;
+        bottom: 55px;
+
+        border-radius: 50%;
+        background: #F0F0F3;
+        box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
+    }
+
+    .left-bubles {
+        height: 224px;
+        width: 130px;
+        position: absolute;
+        left: 690px;
+        top: 20px;
+    }
+
+    .right-bubles {
+        height: 224px;
+        width: 130px;
+        position: absolute;
+        right: 704px;
+        bottom: 155px;
+    }
+}
