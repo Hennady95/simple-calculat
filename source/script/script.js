@@ -134,7 +134,7 @@ buttonPanel.addEventListener('click', (event) => {
         } else {
              percent = number / 100 * +enterNumber.textContent;
         }
-        enterNumber.innerHTML = percent;    
+        enterNumber.innerHTML = percent;  
     } else if(event.target.id === 'plusMin') { //done
         let reverseNumber = 0;
         if(+enterNumber.textContent > 0) {
@@ -156,5 +156,7 @@ buttonPanel.addEventListener('click', (event) => {
         enterNumber.textContent = number;
         showOperation.textContent = '';
         number = 0;
+        operation = '';
     } 
 });
+
