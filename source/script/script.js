@@ -1,3 +1,5 @@
+//import { getOperation, getMultAndDivision, getPercent, getResult } from './mathFunction.js';
+
 //переменные кнопок
 let buttonOne = document.getElementById('one');
 let buttonTwo = document.getElementById('two');
@@ -9,6 +11,14 @@ let buttonSeven = document.getElementById('seven');
 let buttonEight = document.getElementById('eight');
 let buttonNine = document.getElementById('nine');
 let buttonZero = document.getElementById('zero');
+
+
+// Дабы не плодить лисенеры, проще привязать функцию на клик в теге))!!
+function setValue(value) {
+    if(enterNumber.textContent.length != 10) {
+        enterNumber.textContent += value;
+    }
+}
 
 //переменные операций
 let plus = document.getElementById('plus');
@@ -23,140 +33,114 @@ let result = document.getElementById('result');
 
 //first enter
 
-let enterNumber = document.querySelector('.calculate__display--result');
+let enterNumber = document.querySelector('.calculate__display--number');
 
 let showOperation = document.querySelector('.calculate__display--operation');
+
+let showResult = document.querySelector('.calculate__display--result');
 
 let buttonPanel = document.querySelector('.calculate__body');
 
 let number = 0;
-let secondNumber = 0; //для умножения и деления, но это не точно
-let endOperation = true;
+let secondNumber = 0;
 let operation = '';
 
+function getOperation(operation, symbol) {
+    if(operation === 'multiplication') {
+        secondNumber *= +enterNumber.textContent;
+        number = secondNumber;
+    } else if(operation === 'division') {
+        secondNumber /= +enterNumber.textContent;
+        number = secondNumber;
+    } else if(operation === 'minus') {
+        number -= +enterNumber.textContent;
+    } else if(operation === 'plus') {
+        number += +enterNumber.textContent;
+    } else {
+        number = +enterNumber.textContent;
+    }
+    showOperation.textContent += `${enterNumber.textContent} ${symbol} `;
+    enterNumber.textContent = '';
+}
+
+function getMultAndDivision(operation, symbol) {
+    if(operation === 'multiplication') {
+        secondNumber *= +enterNumber.textContent;
+    } else if(operation === 'division' ) {
+        secondNumber /= +enterNumber.textContent;
+    } else if(operation === 'minus' ) {
+        secondNumber -= +enterNumber.textContent;
+    } else if(operation === 'plus' ) {
+        secondNumber += number + +enterNumber.textContent;
+    } else {
+        secondNumber = +enterNumber.textContent;
+    }
+    showOperation.textContent += `${enterNumber.textContent} ${symbol} `;
+    enterNumber.textContent = '';
+}
+
+function getPercent(operation) {
+    if(operation === 'multiplication') {
+        number = secondNumber * (+enterNumber.textContent / 100);
+    } else if(operation === 'division'){
+         number = secondNumber / (+enterNumber.textContent / 100);
+    } else if(operation === 'plus'){
+         number += number / 100 * +enterNumber.textContent ;
+    } else if(operation === 'minus'){
+        number -= number / 100 * +enterNumber.textContent;
+    } else {
+        number = +enterNumber.textContent / 100;
+    }
+    number = +number.toFixed(2);
+    showOperation.textContent += `${enterNumber.textContent} % `;
+    enterNumber.textContent = ''; 
+}
+
+function getResult(operation) {
+    if(enterNumber.textContent.length != 0 && operation === 'plus') {
+        number += +enterNumber.textContent;
+    } else if(enterNumber.textContent.length != 0 && operation === 'minus') {
+        number -= +enterNumber.textContent;
+    }  else if(enterNumber.textContent.length != 0 && operation === 'multiplication') {
+        number = secondNumber * +enterNumber.textContent;
+    } else if(enterNumber.textContent.length != 0 && operation === 'division') {
+        number = secondNumber / +enterNumber.textContent;
+    } else if(enterNumber.textContent.length != 0 && operation === 'percent') {
+        number = number / 100 * +enterNumber.textContent;
+    }
+    number = +number.toFixed(2); 
+    showResult.textContent = number;
+    showOperation.textContent = '';
+    enterNumber.textContent = '';
+    number = 0;
+    secondNumber = 0;
+    operation = '';
+}
+
 buttonPanel.addEventListener('click', (event) => {
-    if(event.target.id === 'one') {
-        enterNumber.textContent += '1';
-    } else if(event.target.id === 'two') {
-        enterNumber.textContent += '2';
-    } else if(event.target.id === 'three') {
-        enterNumber.textContent += '3';
-    } else if(event.target.id === 'four') {
-        enterNumber.textContent += '4';
-    } else if(event.target.id === 'five') {
-        enterNumber.textContent += '5';
-    } else if(event.target.id === 'six') {
-        enterNumber.textContent += '6';
-    } else if(event.target.id === 'seven') {
-        enterNumber.textContent += '7';
-    } else if(event.target.id === 'eight') {
-        enterNumber.textContent += '8';
-    } else if(event.target.id === 'nine') {
-        enterNumber.textContent += '9';
-    } else if(event.target.id === 'zero') {
-        enterNumber.textContent += '0';
-    } else if(event.target.id === 'clear') { // done
+    if(event.target.id === 'clear') { 
         number = 0;
         operation = '';
         enterNumber.textContent = '';
         showOperation.textContent = '';
-    } else if(event.target.id === 'dot') { // done
-        enterNumber.textContent += '.';
-        /////////////////////////////////////////////////////////
-    } else if(event.target.id === 'plus') { //done
-        if(operation === 'multiplication') {
-            secondNumber *= +enterNumber.textContent;
-            number = secondNumber;
-        } else if(operation === 'division') {
-            secondNumber /= +enterNumber.textContent;
-            number = secondNumber;
-        } else if(operation === 'minus') {
-            number -= +enterNumber.textContent;
-        } else if(operation === 'plus') {
-            number += +enterNumber.textContent;
-        } else {
-            number = +enterNumber.textContent;
-        }
+    } else if(event.target.id === 'plus'  && enterNumber.textContent.length != 0 ) { 
+        getOperation(operation, '+')
         operation = 'plus';
-        showOperation.textContent += `${enterNumber.textContent} + `;
-        enterNumber.textContent = '';
-    } else if(event.target.id === 'minus') {
-        if(operation === 'multiplication') {
-            secondNumber *= +enterNumber.textContent;
-            number = secondNumber;
-        } else if(operation === 'division') {
-            secondNumber /= +enterNumber.textContent;
-            number = secondNumber;
-        } else if(operation === 'plus') {
-            number += +enterNumber.textContent;
-        } else if(operation === 'minus') {
-            secondNumber -= +enterNumber.textContent;
-            number = secondNumber;
-        } else {
-            number = +enterNumber.textContent;
-            secondNumber = number;
-        }
+    } else if(event.target.id === 'minus' && enterNumber.textContent.length != 0 ) {
+        getOperation(operation, '-')
         operation = 'minus';
-        showOperation.textContent += `${enterNumber.textContent} - `;
-        enterNumber.textContent = '';
-    } else if(event.target.id === 'multiplication') {  // done но нужно сделать красиво
-        if(operation === 'multiplication') {
-            secondNumber *= +enterNumber.textContent;
-            number = secondNumber;
-        } else if(operation === 'division') {
-            secondNumber /= +enterNumber.textContent;
-            number = secondNumber;
-        } else {
-            secondNumber = +enterNumber.textContent;
-        }
+    } else if(event.target.id === 'multiplication'  && enterNumber.textContent.length != 0 ) {  
+        getMultAndDivision(operation, 'x');
         operation = 'multiplication';
-        showOperation.textContent += `${enterNumber.textContent} x `;
-        enterNumber.textContent = '';
-    } else if(event.target.id === 'division') { // done но нужно сделать красиво
-        if(operation === 'multiplication') {
-            number = secondNumber;
-            secondNumber *= +enterNumber.textContent;
-            number = secondNumber;
-        } else if(operation === 'division') {
-            number = secondNumber;
-            secondNumber /= +enterNumber.textContent;
-            number = secondNumber;
-        } else {
-            secondNumber = +enterNumber.textContent;
-        }
+    } else if(event.target.id === 'division'  && enterNumber.textContent.length != 0 ) {
+        getMultAndDivision(operation, '/')
         operation = 'division';
-        showOperation.textContent += `${enterNumber.textContent} / `;
-        enterNumber.textContent = '';
-    } else if(event.target.id === 'percent') { //done
-        let percent = 0;
-        if(operation === 'multiplication' || operation === 'division') {
-             percent = secondNumber / 100 * +enterNumber.textContent;
-        } else {
-             percent = number / 100 * +enterNumber.textContent;
-        }
-        enterNumber.innerHTML = percent;  
-    } else if(event.target.id === 'plusMin') { //done
-        let reverseNumber = 0;
-        if(+enterNumber.textContent > 0) {
-            reverseNumber = 0 - +enterNumber.textContent
-        } else if( +enterNumber.textContent < 0) {
-            reverseNumber = -1 * +enterNumber.textContent;
-        }
-        enterNumber.textContent =  `${reverseNumber}`;
+    } else if(event.target.id === 'percent') {
+        getPercent(operation);
+        operation = 'percent';
+    } else if(event.target.id === 'plusMin') { 
+        enterNumber.textContent =  +enterNumber.textContent * (-1);
     } else if(event.target.id === 'result') {
-        if(enterNumber.textContent.length != 0 && operation === 'plus') {
-            number += +enterNumber.textContent;
-        } else if(enterNumber.textContent.length != 0 && operation === 'minus') {
-            number -= +enterNumber.textContent;
-        }  else if(enterNumber.textContent.length != 0 && operation === 'multiplication') {
-            number = secondNumber * +enterNumber.textContent;
-        } else if(enterNumber.textContent.length != 0 && operation === 'division') {
-            number = secondNumber / +enterNumber.textContent;
-        } 
-        enterNumber.textContent = number;
-        showOperation.textContent = '';
-        number = 0;
-        operation = '';
+        getResult(operation);
     } 
 });
-

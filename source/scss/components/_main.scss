@@ -1,17 +1,17 @@
 main {
     position: relative;
-    width: 1895px;
-    height: 930px;
+    width: 100vw;//1895px;
+    height: 100vh;//930px;
     background-color: #F0F0F3;
-    padding: 100px 0;
     overflow: hidden;
 
     .calculate {
         position: absolute;
-        left: 750px;
-        width: 360px;//411px;
-        height: 753px;//823px;
-        background-color: #000000;
+        left: calc(50% - 180px);//750px;
+        top: calc(50% - 376px);
+        width: 360px;
+        height: 752px;
+        background: linear-gradient(145.27deg, #2E2C2C -4.62%, #0B0A0A 64.58%);
         margin: 0 auto;
         border-radius: 16px;
         z-index: 5;
@@ -20,7 +20,7 @@ main {
         .calculate__display {
             position: relative;
             box-sizing: border-box;
-            height: 260px;//290px;
+            height: 260px;
             vertical-align: bottom;
             text-align: right;
         }
@@ -28,35 +28,44 @@ main {
         .calculate__display--operation {
             position: absolute;
             bottom: 75px;
-            right: 5px;
+            right: 30px;
             margin: 0;
-            font-size: 53px;
+            font-size: 40px;
             color: #728AB7;
             opacity: 0.65;
         }
 
         .calculate__display--result {
             position: absolute;
-            bottom: 5px;
-            right: 5px;
+            top: 36px;
+            right: 30px;
             margin: 0;
-            font-size: 70px;
+            font-size: 60px;
+            color: #F2F2F4;
+            opacity: 0.2;
+        }
+
+        .calculate__display--number {
+            position: absolute;
+            bottom: 5px;
+            right: 30px;
+            margin: 0;
+            font-size: 40px;
             color: #F2F2F4;
         }
 
         .calculate__body {
-            box-sizing: border-box; // перенести в *
             position: relative;
             display: grid;
             padding-left: 9%;
             padding-top: 15%;
-            height: 493px;//533px;
+            height: 493px;
             background-color:  #F0F0F3;
             border-radius: 12px;
             grid-column-gap: 19.76px;
             grid-row-gap: 24px;
-            grid-template-columns: 60px 60px 60px 60px;//70px 70px 70px 70px;
-            grid-template-rows: 60px 60px 60px 60px 60px;//70px 70px 70px 70px 70px;
+            grid-template-columns: 60px 60px 60px 60px;
+            grid-template-rows: 60px 60px 60px 60px 60px;
         }
         
         .calculate__body::before {
@@ -85,9 +94,9 @@ main {
         }
 
         .button {
-            height: 60px;//70px;
-            width:  60px;//70px;
-            font-size: 30px;//40px;
+            height: 60px;
+            width:  60px;
+            font-size: 30px;
             font-weight: bold;
             background-color: #F0F0F3;
             border: none;
@@ -99,7 +108,7 @@ main {
             padding-left: 25px;
             grid-column-start: 1;
             grid-column-end: 3;
-            width: 135px;//165px;
+            width: 135px;
             text-align: left;
         }
 
@@ -123,23 +132,22 @@ main {
 
     .small-rectangle {
         position: absolute;
-        content: '';
-        height: 230px;
-        width: 188px;
-        left: 300px;
-        top: 150px;
+        height: 240px;
+        width: 200px;
+        left: calc(50% - 630px);
+        top: calc(50% - 360px);
         background: #F0F0F3;
+        -webkit-box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px rgba(174, 174, 192, 0.4);
         box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px rgba(174, 174, 192, 0.4);
-        border-radius: 12px;
+        border-radius: 25px;
     }
 
     .square {
         position: absolute;
-        width: 250px;
-        height: 250px;
-        right: 334px;
-        top: 57px;
-
+        width: 311.5px;
+        height: 311.5px;
+        right: calc(50% - 650px);
+        top: calc(50% - 460px);
         background: #F0F0F3;
         box-shadow: -10px -10px 30px #FFFFFF, 10px 10px 30px rgba(174, 174, 192, 0.4);
         border-radius: 12px;
@@ -159,11 +167,10 @@ main {
 
     .small-circle {
         position: absolute;
-        width: 200px;
-        height: 200px;
-        right: 300px;
-        bottom: 55px;
-
+        width: 250px;
+        height: 250px;
+        right: calc(50% - 646px);
+        bottom: calc(50% - 447px);
         border-radius: 50%;
         background: #F0F0F3;
         box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
@@ -173,15 +180,15 @@ main {
         height: 224px;
         width: 130px;
         position: absolute;
-        left: 690px;
-        top: 20px;
+        left: calc(50% - 234px);
+        top: calc(50% - 459px);
     }
 
     .right-bubles {
         height: 224px;
         width: 130px;
         position: absolute;
-        right: 704px;
-        bottom: 155px;
+        right: calc(50% - 260px);
+        bottom: calc(50% - 295px);
     }
 }
