@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="source/style/main.css">
-    <script defer src="source/script/script.js"></script>
+    <script defer src="source/script/script.js" type="module"></script>
     <title>Calculate</title>
 </head>
 <body>
@@ -127,28 +127,29 @@
        </div>
        <div class="calculate">
             <div class="calculate__display">
-                <p class="calculate__display--operation"></p>
                 <p class="calculate__display--result"></p>
+                <p class="calculate__display--operation"></p>
+                <p class="calculate__display--number"></p>
             </div>
             <div class="calculate__body">
                 <button class="button button--logic__operation" id="clear">C</button>
                 <button class="button button--logic__operation" id="plusMin">&PlusMinus;</button>
                 <button class="button button--logic__operation" id="percent">&#37;</button>
                 <button class="button button--operation" id="division">&#247;</button>
-                <button class="button button--number" id="seven">7</button>
-                <button class="button  button--number" id="eight">8</button>
-                <button class="button  button--number" id="nine">9</button>
+                <button class="button button--number" id="seven" onclick="setValue(this.textContent)">7</button>
+                <button class="button  button--number" id="eight" onclick="setValue(this.textContent)">8</button>
+                <button class="button  button--number" id="nine" onclick="setValue(this.textContent)">9</button>
                 <button class="button button--operation" id="multiplication">&#215;</button>
-                <button class="button  button--number" id="four">4</button>
-                <button class="button  button--number" id="five">5</button>
-                <button class="button  button--number" id="six">6</button>
+                <button class="button  button--number" id="four" onclick="setValue(this.textContent)">4</button>
+                <button class="button  button--number" id="five" onclick="setValue(this.textContent)">5</button>
+                <button class="button  button--number" id="six" onclick="setValue(this.textContent)">6</button>
                 <button class="button button--operation" id="minus">-</button>
-                <button class="button  button--number" id="one">1</button>
-                <button class="button  button--number" id="two">2</button>
-                <button class="button  button--number" id="three">3</button>
+                <button class="button  button--number" id="one" onclick="setValue(this.textContent)">1</button>
+                <button class="button  button--number" id="two" onclick="setValue(this.textContent)">2</button>
+                <button class="button  button--number" id="three" onclick="setValue(this.textContent)">3</button>
                 <button class="button button--operation" id="plus">+</button>
-                <button class="button  button--number button--doublesize" id="zero">0</button>
-                <button class="button  button--number" id="dot">.</button>
+                <button class="button  button--number button--doublesize" id="zero" onclick="setValue(this.textContent)">0</button>
+                <button class="button  button--number" id="dot" onclick="setValue(this.textContent)">.</button>
                 <button class="button button--result" id="result">=</button>
             </div>
        </div>
