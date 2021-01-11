@@ -1,8 +1,6 @@
 //import { getOperation, getMultAndDivision, getPercent, getResult } from './mathFunction.js';
 
-//import {getOperation} from './mathFunction';
-
-// Дабы не плодить лисенеры, проще привязать функцию на клик в теге))!!
+import { getOperation } from './mathFunction.js';
 
 //переменные операций
 let plus = document.getElementById('plus');
@@ -14,8 +12,6 @@ let plusMin = document.getElementById('plusMin');
 let clear = document.getElementById('clear');
 let dot = document.getElementById('dot');
 let result = document.getElementById('result');
-
-//first enter
 
 let enterNumber = document.querySelector('.calculate__display--number');
 
