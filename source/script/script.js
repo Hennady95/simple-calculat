@@ -1,6 +1,9 @@
 //import { getOperation, getMultAndDivision, getPercent, getResult } from './mathFunction.js';
 
 import { getOperation } from './mathFunction.js';
+import { getPercent } from './mathFunction.js';
+import { getMultAndDivision } from './mathFunction.js';
+import { getResult } from './mathFunction.js';
 
 //переменные операций
 let plus = document.getElementById('plus');
@@ -13,16 +16,16 @@ let clear = document.getElementById('clear');
 let dot = document.getElementById('dot');
 let result = document.getElementById('result');
 
-let enterNumber = document.querySelector('.calculate__display--number');
+export let enterNumber = document.querySelector('.calculate__display--number');
 
-let showOperation = document.querySelector('.calculate__display--operation');
+export let showOperation = document.querySelector('.calculate__display--operation');
 
-let showResult = document.querySelector('.calculate__display--result');
+export let showResult = document.querySelector('.calculate__display--result');
 
 let buttonPanel = document.querySelector('.calculate__body');
 
-let number = 0;
-let secondNumber = 0;
+export let number = 0;
+export let secondNumber = 0;
 let operation = '';
 
 /*function getOperation(operation, symbol) {
@@ -41,7 +44,7 @@ let operation = '';
     }
     showOperation.textContent += `${enterNumber.textContent} ${symbol} `;
     enterNumber.textContent = '';
-}*/
+}
 
 function getMultAndDivision(operation, symbol) {
     if(operation === 'multiplication') {
@@ -95,13 +98,12 @@ function getResult(operation) {
     number = 0;
     secondNumber = 0;
     operation = '';
-}
+}*/
 
 buttonPanel.addEventListener('click', (event) => {
     if(event.target.classList.contains('button--number')) {
      enterNumber.textContent += event.target.textContent;
-    } else 
-    if(event.target.id === 'clear') { 
+    } else if(event.target.id === 'clear') { 
         number = 0;
         operation = '';
         enterNumber.textContent = '';

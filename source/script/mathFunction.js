@@ -1,4 +1,6 @@
-function getOperation(operation, symbol) {
+import {showOperation, enterNumber, number, secondNumber, showResult} from './script.js';
+
+function getOperation(operation, symbol, number, secondNumber) {
     if(operation === 'multiplication') {
         secondNumber *= +enterNumber.textContent;
         number = secondNumber;
@@ -33,6 +35,7 @@ function getMultAndDivision(operation, symbol) {
 }
 
 function getPercent(operation) {
+    console.log(number);
     if(operation === 'multiplication') {
         number = secondNumber * (+enterNumber.textContent / 100);
     } else if(operation === 'division'){
@@ -70,10 +73,4 @@ function getResult(operation) {
     operation = '';
 }
 
-function setValue(value) {
-    if(enterNumber.textContent.length != 10) {
-        enterNumber.textContent += value;
-    }
-}
-
-export {getOperation, getMultAndDivision, getPercent, getResult, setValue};
+export {getOperation, getMultAndDivision, getPercent, getResult};
