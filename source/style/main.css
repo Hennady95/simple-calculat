@@ -180,8 +180,8 @@ main .large-circle {
   position: absolute;
   width: 342px;
   height: 342px;
-  left: 300px;
-  top: 75%;
+  left: calc(50% - 660px);
+  bottom: -10%;
   border-radius: 50%;
   background: #F0F0F3;
   -webkit-box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
