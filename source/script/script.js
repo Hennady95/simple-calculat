@@ -1,24 +1,8 @@
 //import { getOperation, getMultAndDivision, getPercent, getResult } from './mathFunction.js';
 
-//переменные кнопок
-let buttonOne = document.getElementById('one');
-let buttonTwo = document.getElementById('two');
-let buttonThree = document.getElementById('three');
-let buttonFour = document.getElementById('four');
-let buttonFive = document.getElementById('five');
-let buttonSix = document.getElementById('six');
-let buttonSeven = document.getElementById('seven');
-let buttonEight = document.getElementById('eight');
-let buttonNine = document.getElementById('nine');
-let buttonZero = document.getElementById('zero');
-
+//import {getOperation} from './mathFunction';
 
 // Дабы не плодить лисенеры, проще привязать функцию на клик в теге))!!
-function setValue(value) {
-    if(enterNumber.textContent.length != 10) {
-        enterNumber.textContent += value;
-    }
-}
 
 //переменные операций
 let plus = document.getElementById('plus');
@@ -45,7 +29,7 @@ let number = 0;
 let secondNumber = 0;
 let operation = '';
 
-function getOperation(operation, symbol) {
+/*function getOperation(operation, symbol) {
     if(operation === 'multiplication') {
         secondNumber *= +enterNumber.textContent;
         number = secondNumber;
@@ -61,7 +45,7 @@ function getOperation(operation, symbol) {
     }
     showOperation.textContent += `${enterNumber.textContent} ${symbol} `;
     enterNumber.textContent = '';
-}
+}*/
 
 function getMultAndDivision(operation, symbol) {
     if(operation === 'multiplication') {
@@ -118,6 +102,9 @@ function getResult(operation) {
 }
 
 buttonPanel.addEventListener('click', (event) => {
+    if(event.target.classList.contains('button--number')) {
+     enterNumber.textContent += event.target.textContent;
+    } else 
     if(event.target.id === 'clear') { 
         number = 0;
         operation = '';
