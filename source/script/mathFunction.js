@@ -1,4 +1,4 @@
-function getMathFunction(operation, firstNumber, secondnumber) {
+function getMathFunction(operation, firstNumber, secondNumber) {
     if(operation === 'multiplication') {
         firstNumber *= secondNumber;
     } else if(operation === 'division') {
@@ -8,7 +8,7 @@ function getMathFunction(operation, firstNumber, secondnumber) {
     } else if(operation === 'plus') {
         firstNumber += secondNumber;
     } else {
-        firstNumber = secondnumber;
+        firstNumber = secondNumber;
     }
     return firstNumber;
 }
