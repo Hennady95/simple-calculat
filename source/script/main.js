@@ -6,40 +6,37 @@ let showResult = document.querySelector('.calculate__display--result');
 let buttonPanel = document.querySelector('.calculate__body');
 
 let number = 0;
+let weightNumber = 0;
 let operation = '';
 
 buttonPanel.addEventListener('click', (event) => {
     if(event.target.classList.contains('button--number')) {
-     enterNumber.textContent += event.target.textContent;
+     if(weightNumber < 10) {
+        enterNumber.textContent += event.target.textContent;
+        weightNumber++;
+     }
     } else if(event.target.id === 'clear') { 
         number = 0;
         operation = '';
         enterNumber.textContent = '';
         showOperation.textContent = '';
-    } else if(event.target.id === 'plus'  && enterNumber.textContent.length != 0 ) {
-        console.log(number);
-        number = getMathFunction(operation, number, +enterNumber.textContent);
-        showOperation.textContent += `${+enterNumber.textContent} + `;
-        console.log('qwe' + number);
+    } else if(event.target.id === 'plus'  && enterNumber.textContent) {
+        number = getMathFunction(operation, number, +enterNumber.textContent, enterNumber, showOperation, '+');
         operation = 'plus';
-        enterNumber.textContent = '';
-    } else if(event.target.id === 'minus' && enterNumber.textContent.length != 0 ) {
-        number = getMathFunction(operation, number, +enterNumber.textContent);
-        showOperation.textContent += `${+enterNumber.textContent} - `;
+        weightNumber = 0;
+    } else if(event.target.id === 'minus' && enterNumber.textContent) {
+        number = getMathFunction(operation, number, +enterNumber.textContent, enterNumber, showOperation, '-');
         operation = 'minus';
-        enterNumber.textContent = '';
-    } else if(event.target.id === 'multiplication'  && enterNumber.textContent.length != 0 ) {  
-        number = getMathFunction(operation, number, +enterNumber.textContent);
-        showOperation.textContent += `${+enterNumber.textContent} x `;
+        weightNumber = 0;
+    } else if(event.target.id === 'multiplication'  && enterNumber.textContent) {  
+        number = getMathFunction(operation, number, +enterNumber.textContent, enterNumber, showOperation, 'x');
         operation = 'multiplication';
-        enterNumber.textContent = '';
-    } else if(event.target.id === 'division'  && enterNumber.textContent.length != 0 ) {
-        number = getMathFunction(operation, number, +enterNumber.textContent);
-        showOperation.textContent += `${+enterNumber.textContent} / `;
+        weightNumber = 0;
+    } else if(event.target.id === 'division'  && enterNumber.textContent) {
+        number = getMathFunction(operation, number, +enterNumber.textContent, enterNumber, showOperation, '/');
         operation = 'division';
-        enterNumber.textContent = '';
+        weightNumber = 0;
     } else if(event.target.id === 'percent') {
-        console.log(number);
         number = getPercent(operation, number, +enterNumber.textContent);
         operation = 'percent';
         showOperation.textContent += `${+enterNumber.textContent} % `;
@@ -52,6 +49,7 @@ buttonPanel.addEventListener('click', (event) => {
         showOperation.textContent = '';
         enterNumber.textContent = '';
         number = 0;
+        weightNumber = 0;
         operation = '';
     } 
 });

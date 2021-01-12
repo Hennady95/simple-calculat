@@ -1,4 +1,4 @@
-function getMathFunction(operation, firstNumber, secondNumber) {
+function getMathFunction(operation, firstNumber, secondNumber, enterField, operationField, symbol) {
     if(operation === 'multiplication') {
         firstNumber *= secondNumber;
     } else if(operation === 'division') {
@@ -10,6 +10,8 @@ function getMathFunction(operation, firstNumber, secondNumber) {
     } else {
         firstNumber = secondNumber;
     }
+    enterField.textContent = '';
+    operationField.textContent += `${firstNumber} ${symbol} `;
     return firstNumber;
 }
 
